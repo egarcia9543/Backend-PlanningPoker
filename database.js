@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
-const URI = `mongodb+srv://egarciagADSO:XO57uueJpgBbPtxr@clusteradso2498009.njas8p5.mongodb.net/PlanningPoker?retryWrites=true&w=majority`;
+const URI = process.env.MONGO_URI;
 mongoose.connect(URI);
 
 module.exports = mongoose;
