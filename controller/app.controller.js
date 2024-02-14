@@ -1,9 +1,5 @@
 const appDb = require('../data/app.data');
 
-exports.welcome = async (req, res) => {
-    res.send({response: 'Bienvenido'});
-};
-
 exports.createNewGame = async (req, res) => {
     try {
         const {name} = req.body;
@@ -30,12 +26,10 @@ exports.registerPlayer = async (req, res) => {
 };
 
 exports.getPlayersInGame = async (req, res) => {
-    console.log('Hola');
     try {
-        const players = await appDb.getPlayersInGame(req.params.id)
-        res.json(players);
+        const response = await appDb.getPlayersInGame(req.params.id)
+        res.json(response.players);
     } catch (error) {
         console.error(error);
     }
 };
-
